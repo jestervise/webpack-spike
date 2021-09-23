@@ -5,7 +5,7 @@ module.exports = {
     //entry point
     "entry" : {index: path.resolve(__dirname,"source","index.js")},
     //output location 
-    "output":{ path: path.resolve(__dirname, "build"), filename: "main.js" },
+    "output":{ path: path.resolve(__dirname, "build"), filename: "[name].js" },
     //plugins are third party extension that alter how webpack works
     "plugins":[
         new HTMLWebpackPlugin({
@@ -33,7 +33,15 @@ module.exports = {
                 test:/\.scss$/,
                 use: ['style-loader','css-loader','sass-loader']
 
+            },
+            {
+                test:/\.js$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
             }
          ]
+    },
+    optimization:{
+        splitChunks:{chunks:"all"}
     }
 }
