@@ -1,5 +1,5 @@
 ## Webpack Tutorial 
 
-### npm install 
-### npm run dev
-### npm start
+* npm install 
+* npm run dev
+* npm start
